@@ -1,0 +1,526 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #16223b;
+  --ink-soft: #536078;
+  --paper: #f3f0e9;
+  --paper-card: #ffffff;
+  --gold: #b8862e;
+  --gold-light: #f3e5c3;
+  --teal: #2f6f62;
+  --teal-light: #e5f1ee;
+  --line: #ddd7c9;
+  --error: #a63a34;
+  --success: #39735f;
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(22, 34, 59, 0.07);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top right, rgba(184, 134, 46, 0.08), transparent 30rem),
+    var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  text-align: center;
+  padding: 4rem 1.5rem 3rem;
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, #fffdf9 0%, #f3f0e9 100%);
+}
+
+.hero-mark {
+  color: var(--gold);
+  margin-bottom: 0.8rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  margin: 0 0 0.65rem;
+  letter-spacing: -0.025em;
+}
+
+.tagline {
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+/* =========================
+   SEARCH CARD
+========================= */
+
+.search-card {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.field-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field-small {
+  flex: 0 0 160px;
+}
+
+label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+input,
+select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 0.98rem;
+  padding: 0.78rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:hover,
+select:hover {
+  border-color: #bdb5a3;
+}
+
+input:focus,
+select:focus,
+button:focus-visible {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(47, 111, 98, 0.13);
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button#submit-btn {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  margin-top: 0.5rem;
+  background: var(--ink);
+  color: #fff;
+  border: none;
+  border-radius: 9px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+button#submit-btn:hover {
+  background: var(--teal);
+  transform: translateY(-1px);
+  box-shadow: 0 7px 18px rgba(22, 34, 59, 0.15);
+}
+
+button#submit-btn:active {
+  transform: translateY(0);
+}
+
+button#submit-btn:disabled {
+  background: #9299a8;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+  margin-top: 1.75rem;
+  padding: 1rem 1.2rem;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.status-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.status-list li {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+
+.status-list li.active {
+  opacity: 1;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error-box {
+  margin-top: 1.75rem;
+  background: #fbeae8;
+  border: 1px solid #e3b4af;
+  color: var(--error);
+  padding: 1rem 1.1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+.results {
+  margin-top: 3rem;
+}
+
+.results h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.7rem;
+  margin: 0 0 1.4rem;
+}
+
+.results h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.3rem;
+  margin: 2.5rem 0 1rem;
+}
+
+/* =========================
+   HOTEL CARDS
+========================= */
+
+.hotel-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hotel-card {
+  position: relative;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 4px 18px rgba(22, 34, 59, 0.045);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.hotel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(22, 34, 59, 0.09);
+}
+
+.hotel-card .rank-tag {
+  position: absolute;
+  top: -0.65rem;
+  left: 1.25rem;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 0.22rem 0.65rem;
+  border-radius: 100px;
+  box-shadow: 0 3px 8px rgba(22, 34, 59, 0.15);
+}
+
+.hotel-card h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 1.45rem;
+  line-height: 1.25;
+  margin: 0.45rem 0 0.7rem;
+  color: var(--ink);
+}
+
+/* =========================
+   HOTEL META
+========================= */
+
+.hotel-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem 1.3rem;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 0.8rem;
+}
+
+.hotel-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.hotel-meta span strong {
+  color: var(--ink);
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.hotel-card p.desc {
+  font-size: 0.94rem;
+  color: var(--ink-soft);
+  margin: 0.5rem 0 0.9rem;
+}
+
+/* =========================
+   CHIPS
+========================= */
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.8rem;
+}
+
+.chip {
+  background: var(--gold-light);
+  border: 1px solid #e3c98f;
+  color: #69501f;
+  font-size: 0.77rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 100px;
+}
+
+/* =========================
+   LINKS
+========================= */
+
+.hotel-card .links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.85rem;
+}
+
+.hotel-card .links a {
+  color: var(--teal);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hotel-card .links a:hover {
+  text-decoration: underline;
+}
+
+/* =========================
+   COMPARISON TABLE
+========================= */
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: var(--radius);
+}
+
+table.compare {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+table.compare th,
+table.compare td {
+  text-align: left;
+  padding: 0.75rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+table.compare th {
+  background: #eee9dd;
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+table.compare tr:last-child td {
+  border-bottom: none;
+}
+
+table.compare tr:hover td {
+  background: #faf9f5;
+}
+
+/* =========================
+   RECOMMENDATION
+========================= */
+
+.recommendation {
+  background: var(--paper-card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--teal);
+  border-radius: var(--radius);
+  padding: 1.2rem 1.35rem;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  box-shadow: 0 4px 16px rgba(22, 34, 59, 0.04);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  padding: 1.8rem 1rem;
+  border-top: 1px solid var(--line);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  main {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-card {
+    padding: 1.25rem;
+  }
+
+  .field-row {
+    flex-direction: column;
+  }
+
+  .field-small {
+    flex: 1;
+  }
+
+  .hero {
+    padding: 3rem 1rem 2.2rem;
+  }
+
+  .hotel-card {
+    padding: 1.35rem;
+  }
+
+  .hotel-card h4 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hotel-meta {
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  table.compare {
+    font-size: 0.8rem;
+  }
+
+  table.compare th,
+  table.compare td {
+    padding: 0.6rem;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

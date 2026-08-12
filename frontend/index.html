@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Hotel Research Agent</title>
+<link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" width="34" height="34">
+        <path d="M24 4 L28 20 L44 24 L28 28 L24 44 L20 28 L4 24 L20 20 Z" fill="currentColor"/>
+      </svg>
+    </div>
+    <h1>AI Hotel Research Agent</h1>
+    <p class="tagline">Tell me where you're headed — I'll search the web and bring back real, sourced hotel picks.</p>
+  </header>
+
+  <main>
+    <section class="search-card" aria-label="Search form">
+      <form id="research-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="country">Country</label>
+            <input type="text" id="country" name="country" placeholder="e.g. Pakistan" required />
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" placeholder="e.g. Lahore" required />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field field-small">
+            <label for="number_of_hotels">Number of hotels</label>
+            <input type="number" id="number_of_hotels" name="number_of_hotels" min="1" max="10" value="5" />
+          </div>
+          <div class="field">
+            <label for="preferences">Preference</label>
+            <select id="preferences" name="preferences">
+              <option value="Any">Any</option>
+              <option value="Luxury">Luxury</option>
+              <option value="Budget">Budget</option>
+              <option value="Family-friendly">Family-friendly</option>
+              <option value="Business">Business</option>
+              <option value="Near city center">Near city center</option>
+              <option value="Near airport">Near airport</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="submit-btn">Research Hotels</button>
+      </form>
+    </section>
+
+    <section id="status" class="status" hidden aria-live="polite">
+      <ul id="status-list" class="status-list"></ul>
+    </section>
+
+    <section id="error-box" class="error-box" hidden></section>
+
+    <section id="results" class="results" hidden>
+      <h2 id="results-heading"></h2>
+      <div id="hotel-cards" class="hotel-cards"></div>
+
+      <h3>Comparison</h3>
+      <div id="comparison-table" class="table-wrap"></div>
+
+      <h3>Recommendation</h3>
+      <p id="recommendation" class="recommendation"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Results are gathered from live web search. Fields marked "Not available" could not be verified.</p>
+  </footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
